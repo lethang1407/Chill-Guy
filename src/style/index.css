@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root,
+:root {
+    min-height: 100%;
+    max-height: fit-content;
+}
+
+.react-flow__handle {
+    opacity: 0;
+}
