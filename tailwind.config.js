@@ -58,7 +58,14 @@ export default {
       boxShadow: {
         '3xl': '0px 4px 8px rgba(0, 0, 0, 0.5)',
       },
+      filter: {
+        'green-glow': 'drop-shadow(0px 0px 1px hsl(100, 100%, 80%)) drop-shadow(0px 0px 8px green)',
+      },
   },
 },
-  plugins: [require("tailwindcss-animate")],
+plugins: [
+  require("tailwindcss-animate"),
+  require("tailwindcss-filters"),
+],  
+  
 }

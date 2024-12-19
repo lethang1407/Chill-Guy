@@ -1,0 +1,83 @@
+import { createContext, useContext, useEffect, useState } from "react";
+import Icon from "./Icon";
+import { useOutSideClick } from "../../hooks/useOutSideClick";
+import StyleListMenu from "./StyleListMenu";
+import { cn } from "../../lib/utils";
+import ModalButton from "./ModalButton";
+import { createPortal } from "react-dom";
+
+
+const MenusContext = createContext();
+
+function Menus({ children }) {
+    const [openName, setOpenName] = useState("");  
+    const [position, setPosition] = useState(null);
+    const close = () => setOpenName("");  
+    const open = setOpenName;  
+    
+    return (
+        <MenusContext.Provider value={{ openName, open, close, position, setPosition }}>
+            {children}
+        </MenusContext.Provider>
+    );
+}
+
+
+
+function Toggle({ name, icon }) {
+    const { openName, open, close, setPosition } = useContext(MenusContext);
+    
+
+    function handleClick(e) {
+        e.stopPropagation();
+        console.log("Da dong")
+        const rect = e.target.closest("button").getBoundingClientRect();
+        setPosition({
+          x: window.innerWidth - rect.width - rect.x,
+          y: rect.y + rect.height + 8,
+        });
+        
+        openName === "" || openName !== name ? open(name) : close();
+    }
+
+    return (
+        <ModalButton icon={<Icon name={icon} />} onClick={handleClick} />
+    );
+}
+
+function List({ name, children }) {
+    const { openName, close, position } = useContext(MenusContext);
+    const ref = useOutSideClick(close);
+
+    if (openName !== name) return null;  // Nếu không phải menu này, không render
+
+    return createPortal(
+        <StyleListMenu position={position} ref={ref}>
+            {children}
+        </StyleListMenu>, document.body
+    )
+}
+
+function Button({ children, icon, onClick }) {
+    const { close } = useContext(MenusContext);
+
+    function handleClick() {
+        onClick?.();
+        close();  // Đóng menu sau khi bấm vào button
+    }
+
+    return (
+        <li>
+            <button onClick={handleClick}>
+                {icon}
+                <span>{children}</span>
+            </button>
+        </li>
+    )
+}
+
+Menus.Toggle = Toggle
+Menus.List = List
+Menus.Button = Button
+
+export default Menus;
