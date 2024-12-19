@@ -2,17 +2,18 @@
 import { cn } from '../../lib/utils';
 import Logo from './logo';
 import React from "react";
-import { FaMountainSun } from "react-icons/fa6";
+
 import Modal from './Modal';
 import ModalButton from './ModalButton';
 import SceneList from '../Scene/SceneList';
+import Icon from './Icon';
 function Header() {
     return (
         <div className={cn("px-9 py-4  flex items-center  ")}>
             <Logo />
             <Modal>
                 <Modal.Open opens="sceneList">
-                    <ModalButton  icon={<FaMountainSun />}>              
+                    <ModalButton  icon={<Icon nums={0}/>}>              
                     </ModalButton>
                 </Modal.Open>
                 <Modal.Window name="sceneList" >
