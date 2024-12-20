@@ -50,8 +50,57 @@ export const SceneListData = [
         name: "Scene 10",
         description: "Scene 10",
         image: "/background/scene10.gif",
-    }
-    
+    },
+    {
+        name: "Scene 11",
+        description: "Scene 11",
+        image: "/background/scene11.gif",
+    },
+    {
+        name: "Scene 12",
+        description: "Scene 12",
+        image: "/background/scene12.gif",
+    },
+    {
+        name: "Scene 13",
+        description: "Scene 13",
+        image: "/background/scene13.gif",
+    },
+    {
+        name: "Scene 14",
+        description: "Scene 14",
+        image: "/background/scene14.gif",
+    },
+    {
+        name: "Scene 15",
+        description: "Scene 15",
+        image: "/background/scene15.gif",
+    },
+    {
+        name: "Scene 16",
+        description: "Scene 16",
+        image: "/background/scene16.gif",
+    },
+    {
+        name: "Scene 17",
+        description: "Scene 17",
+        image: "/background/scene17.gif",
+    },
+    {
+        name: "Scene 18",
+        description: "Scene 18",
+        image: "/background/scene18.gif",
+    },
+    {
+        name: "Scene 19",
+        description: "Scene 19",
+        image: "/background/scene19.gif",
+    },
+    {
+        name: "Scene 20",
+        description: "Scene 20",
+        image: "/background/scene20.gif",
+    },
 ]
 function SceneList({onCloseModal}) {
     return (

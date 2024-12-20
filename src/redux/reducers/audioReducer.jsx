@@ -1,11 +1,10 @@
-import { SET_PAUSE } from "../constantsType/actionType";
-import { SET_PLAYING } from "../constantsType/actionType";
-import { SET_VOLUME } from "../constantsType/actionType";
+import { SET_PAUSE, SET_PLAYING, SET_VOLUME, SET_TOGGLE_MUTE } from "../constantsType/actionType";
 
 const INITIAL_STATE = {
-    playing: true,
-    pause: false,
-    volume: 0.5,
+    playing: false,
+    pause: true,
+    volume: 1,
+    previousVolume: 1,
 };
 
 export const audioReducer = (state = INITIAL_STATE, action) => {
@@ -15,7 +14,17 @@ export const audioReducer = (state = INITIAL_STATE, action) => {
         case SET_PAUSE:
             return { ...state, pause: action.payload };
         case SET_VOLUME:
-            return { ...state, volume: action.payload };
+            return {
+                ...state,
+                previousVolume: action.payload === 0 ? state.volume : state.previousVolume,
+                volume: action.payload,
+            };
+        case SET_TOGGLE_MUTE:
+           
+            return {
+                ...state,
+                volume: state.volume === 0 ? state.previousVolume : 0,
+            };
         default:
             return state;
     }

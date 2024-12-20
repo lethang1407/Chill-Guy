@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Icon from "../ui/Icon";
 import { cn } from "../../lib/utils"
 import { setPlaying, setVolume, setPause, setNext, setPrevious } from "../../redux/actions";
+import VolumeSetting from "../ui/VolumeSetting";
 function MusicPlay({videoId}) {
     const playerRef = useRef(null);
     const dispatch = useDispatch();
@@ -35,7 +36,9 @@ function MusicPlay({videoId}) {
             const youtubePlayer = new window.YT.Player(playerRef.current, {
                 videoId: videoId,
                 playerVars: {
-                    autoplay: 1,  // Bắt đầu phát ngay lập tức
+                    autoplay: 1, 
+                    loop: 1,      
+                    playlist: videoId, 
                     controls: 0,
                     modestbranding: 1,
                     rel: 0,
@@ -60,11 +63,10 @@ function MusicPlay({videoId}) {
     }, [isApiReady, videoId]);
 
     const onPlayerReady = () => {
-        console.log("Player is ready");
-        if (player && !pause) {
-            player.playVideo(); // Chạy video ngay khi player đã sẵn sàng
-            dispatch(setPlaying(true)); // Cập nhật trạng thái phát trong Redux
-            dispatch(setPause(false)); // Đảm bảo pause là false
+        if (player) {
+            player.pauseVideo(); 
+            dispatch(setPlaying(false));  
+            dispatch(setPause(true));
         }
     };
 
@@ -76,32 +78,30 @@ function MusicPlay({videoId}) {
             dispatch(setPlaying(false)); 
             dispatch(setPause(true)); 
         }
+        if (event.data === window.YT.PlayerState.ENDED) {
+            player.playVideo();  
+        }
     };
 
     const handlePlayPause = () => {
         if (player) {
             if (pause) {
                 player.playVideo();
-                dispatch(setPause(false)); // Đặt pause là false
+                dispatch(setPause(false)); 
             } else {
                 player.pauseVideo();
-                dispatch(setPause(true)); // Đặt pause là true
+                dispatch(setPause(true)); 
             }
         }
     };
 
-    const handleVolumeChange = (volume) => {
-        if (player) {
-            dispatch(setVolume(volume));
-            player.setVolume(volume);
-        }
-    };
+   
     const handleNext = () => {
-        dispatch(setNext()); // Gọi action setNext đúng cách
+        dispatch(setNext()); 
     };
 
     const handlePrevious = () => {
-        dispatch(setPrevious()); // Gọi action setPrevious đúng cách
+        dispatch(setPrevious()); 
     };
 
     return (
@@ -113,8 +113,7 @@ function MusicPlay({videoId}) {
                 </button>
                 <button onClick={handlePrevious}><Icon name={"Previous"} /></button>
                 <button onClick={handleNext}><Icon name={"Next"} /></button>
-                <button onClick={() => handleVolumeChange(50)}>Set Volume 50</button>
-                <button onClick={() => handleVolumeChange(100)}>Set Volume 100</button>
+                <VolumeSetting player={player} />
             </div>
         </>
     );

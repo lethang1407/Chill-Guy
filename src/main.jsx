@@ -6,12 +6,13 @@ import './global.css'
 import './style/index.css'
 
 import App from './Pages/App.jsx'
+import VolumeSetting from './components/ui/VolumeSetting.jsx';
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
      <Provider store={store}>
-    <App />
+     <App /> 
   </Provider>
   </StrictMode>,
 )

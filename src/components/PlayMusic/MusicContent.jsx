@@ -7,7 +7,7 @@ function MusicContent() {
     return (
         <div className={cn("m-9")}>
            <MusicPlay videoId={selectID.url} />
-           <p className={cn("text-xl  filter-green-glow text-slate-200")}>{selectID.des}</p>
+           <p className={cn("text-xl mt-2 filter-green-glow text-slate-200")}>{selectID.des}</p>
         </div>
     )
 }   

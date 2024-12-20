@@ -11,6 +11,9 @@ export const setVolume = (volume) => ({
     type: "SET_VOLUME",
     payload: volume,
 })
+export const setToggleMute = () => ({
+    type: "SET_TOGGLE_MUTE",
+})
 export const setPlaying = (playing) => ({
     type: "SET_PLAYING",
     payload: playing,
