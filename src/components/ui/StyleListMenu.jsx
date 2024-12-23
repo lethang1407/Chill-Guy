@@ -4,7 +4,7 @@ import { cn } from "../../lib/utils";
 const StyleListMenu = forwardRef(({ position, children }, ref) => {
     return (
         <ul
-            ref={ref}  // Gán ref vào component
+            ref={ref}  
             className={cn("fixed bg-stone-100 shadow-slate-800 p-2  transition-all duration-500 ease-in-out  shadow-md rounded-md")}
             style={{
                 right: `${position.x}px`,

@@ -49,7 +49,7 @@ function List({ name, children }) {
     const { openName, close, position } = useContext(MenusContext);
     const ref = useOutSideClick(close);
 
-    if (openName !== name) return null;  // Nếu không phải menu này, không render
+    if (openName !== name) return null; 
 
     return createPortal(
         <StyleListMenu position={position} ref={ref}>
@@ -63,7 +63,7 @@ function Button({ children, icon, onClick }) {
 
     function handleClick() {
         onClick?.();
-        close();  // Đóng menu sau khi bấm vào button
+        close();  
     }
 
     return (

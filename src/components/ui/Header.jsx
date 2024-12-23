@@ -7,6 +7,7 @@ import React from "react";
 import Menus from './Menus';
 import Calendar from '../Calendar/Calendar';
 import TodoListContent from '../TodoList/TodoListContent';
+import Time from '../Time/Time';
 
 function Header() {
     return (
@@ -19,7 +20,7 @@ function Header() {
             </Menus>
             <Calendar />
             <TodoListContent />
-            
+            <Time />
             </div>
         </div>
     )

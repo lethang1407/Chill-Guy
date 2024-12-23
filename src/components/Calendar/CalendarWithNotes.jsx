@@ -18,7 +18,7 @@ const CalendarWithNotes = () => {
     const [isEditing, setIsEditing] = useState(false);
 
 
-    // Chuyển đổi selectedDate thành đối tượng Dayjs nếu nó chưa phải là Dayjs
+    
     const selectedDateObj = selectedDate ? dayjs(selectedDate) : null;
    
     const handleDeleteNote = () => {

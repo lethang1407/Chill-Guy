@@ -63,3 +63,23 @@ export const ToggleTodoList = (id) => ({
     type: "TOGGLE_TODO_LIST",
     payload: id
 })
+export const startPomodoro = () => ({
+    type: "START_POMODORO",
+});
+
+export const stopPomodoro = () => ({
+    type: "STOP_POMODORO",
+});
+
+export const resetPomodoro = () => ({
+    type: "RESET_POMODORO",
+});
+
+export const setPomodoroTime = (time) => ({
+    type: "SET_POMODORO_TIME",
+    payload: time,
+});
+export const togglePomodoroMode = (isPomodoro) => ({
+    type: "TOGGLE_POMODORO_MODE",
+    payload: isPomodoro,
+});

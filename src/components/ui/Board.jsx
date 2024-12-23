@@ -28,11 +28,12 @@ function Open({ children, opens: openWindowName }) {
 
 function Window({ children, name }) {
     const { openName, close } = useContext(BoardContext);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [position, setPosition] = useState({ x: 100, y: 100 });
     const [dragging, setDragging] = useState(false);
     const dragStartRef = useRef(null);
 
     const handleMouseDown = (e) => {
+        e.stopPropagation();
         setDragging(true);
         dragStartRef.current = {
             x: e.clientX - position.x,
@@ -70,7 +71,7 @@ function Window({ children, name }) {
                     top: `${position.y}px`,
                     left: `${position.x}px`,
                 }}
-                onMouseDown={handleMouseDown}
+               
             >
                   <div
                     className="cursor-move p-2 bg-gray-200 rounded-t-md"
