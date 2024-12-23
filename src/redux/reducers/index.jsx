@@ -3,8 +3,12 @@ import { combineReducers } from 'redux';
 import sceneReducer from './sceneReducer';
 import musicReducer from './musicReducer';
 import audioReducer  from './audioReducer';
-export const rootReducer = combineReducers({
+import calendarReducer from './CalendarReducer';
+ const rootReducer = combineReducers({
     scene: sceneReducer,
     music: musicReducer,
-    audio: audioReducer
+    audio: audioReducer,
+    event: calendarReducer
 });
+
+export {rootReducer};

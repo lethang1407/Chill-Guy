@@ -1,12 +1,26 @@
-// src/store/index.js
+
 import { createStore, applyMiddleware } from 'redux';
 import { thunk } from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from '../reducers';  
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';  
+
+
+const persistConfig = {
+  key: 'root',
+  storage, 
+  whitelist: ['event', 'music'],  
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 
 const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))  
+  persistedReducer,
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };

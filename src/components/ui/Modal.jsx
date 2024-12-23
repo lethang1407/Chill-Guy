@@ -3,6 +3,7 @@ import { useOutSideClick } from "../../hooks/useOutSideClick";
 import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";
 import { cn } from '../../lib/utils';
+import Icon from "./Icon";
 
 const ModalContext = createContext();
 function Modal({ children }) {
@@ -28,7 +29,7 @@ function Window({ children,name }) {
     return createPortal(
         <div className={cn("fixed inset-0 bg-black/50 w-full h-screen z-50 transition-all duration-500 ease-in-out backdrop-blur-sm")}>
             <div className={cn("w-[90%] h-[90%] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-stone-100 shadow-slate-800 p-2 rounded-md transition-all duration-500 ease-in-out ")} ref={ref}>
-                <button className={cn("p-2 hover:bg-red-500 rounded-md hover:text-white transition-all duration-100 absolute top-1 right-1  ")} onClick={close}><IoClose /></button>
+                <button className={cn("filter-none p-2 hover:bg-red-500 rounded-md hover:text-white transition-all duration-100 absolute top-1 right-1  ")} onClick={close}><Icon name={"Close"} className={"!filter-none text-black hover:text-white  "} /></button>
                 <div>{cloneElement(children, { onCloseModal: close })}</div>
             </div>
         </div>,

@@ -1,18 +1,20 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux';
-import store from './redux/Store/index.jsx';
 import './global.css'
 import './style/index.css'
-
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/Store/index.jsx';
 import App from './Pages/App.jsx'
-import VolumeSetting from './components/ui/VolumeSetting.jsx';
+
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <Provider store={store}>
-     <App /> 
-  </Provider>
-  </StrictMode>,
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </StrictMode>
 )

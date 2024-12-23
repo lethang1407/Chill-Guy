@@ -6,3 +6,7 @@ export const SET_PLAYING = 'SET_PLAYING';
 export const SET_PAUSE = 'SET_PAUSE';
 export const SET_NEXT = 'SET_NEXT';
 export const SET_PREVIOUS = 'SET_PREVIOUS';
+export const SET_EVENT = 'SET_EVENT';
+export const SET_SELECTED_DATE = 'SET_SELECTED_DATE';
+export const DELETE_EVENT = "DELETE_EVENT";
+export const EDIT_EVENT = "EDIT_EVENT";

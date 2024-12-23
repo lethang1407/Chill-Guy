@@ -9,6 +9,8 @@ function MusicPlay({videoId}) {
     const dispatch = useDispatch();
     const { pause } = useSelector((state) => state.audio); 
     const [isApiReady, setIsApiReady] = useState(false); 
+    const [isLoading, setIsLoading] = useState(false);  
+    const [error, setError] = useState(null); 
     const [player, setPlayer] = useState(null); 
 
     useEffect(() => {
@@ -20,6 +22,10 @@ function MusicPlay({videoId}) {
 
             script.onload = () => {
                 window.onYouTubeIframeAPIReady = () => setIsApiReady(true);
+            };
+            script.onerror = () => {
+                setIsLoading(false); 
+                setError("Failed to load YouTube API."); 
             };
         } else {
             setIsApiReady(true);
@@ -33,7 +39,7 @@ function MusicPlay({videoId}) {
 
     useEffect(() => {
         if (isApiReady && videoId) {
-            const youtubePlayer = new window.YT.Player(playerRef.current, {
+            const youtubePlayer = new window.YT.Player("youtube-player", {
                 videoId: videoId,
                 playerVars: {
                     autoplay: 1, 
@@ -51,11 +57,12 @@ function MusicPlay({videoId}) {
                 events: {
                     onReady: onPlayerReady,
                     onStateChange: onPlayerStateChange,
+                    onError: onPlayerError,
                 },
             });
 
+            playerRef.current = youtubePlayer; 
             setPlayer(youtubePlayer);
-
             return () => {
                 youtubePlayer.destroy();
             };
@@ -65,11 +72,15 @@ function MusicPlay({videoId}) {
     const onPlayerReady = () => {
         if (player) {
             player.pauseVideo(); 
-            dispatch(setPlaying(false));  
+             dispatch(setPlaying(false));  
             dispatch(setPause(true));
+            setIsLoading(true);
         }
     };
-
+    const onPlayerError = (event) => {
+        setIsLoading(false); 
+        setError("Failed to load video."); 
+    };
     const onPlayerStateChange = (event) => {
         if (event.data === window.YT.PlayerState.PLAYING) {
             dispatch(setPlaying(true)); 
@@ -106,15 +117,21 @@ function MusicPlay({videoId}) {
 
     return (
         <>
-        <div ref={playerRef} id="player" style={{ width: '0', height: '0' }}></div>
-            <div  className={cn("flex items-center gap-2")} >
-                <button onClick={handlePlayPause} >
-                <Icon name={pause ? "Play" : "Pause"} />
-                </button>
-                <button onClick={handlePrevious}><Icon name={"Previous"} /></button>
-                <button onClick={handleNext}><Icon name={"Next"} /></button>
-                <VolumeSetting player={player} />
-            </div>
+         {isLoading && <div>Loading...</div>}  {/* Hiển thị loading khi đang tải */}
+            {error && <div>Error: {error}</div>}  {/* Hiển thị thông báo lỗi nếu có */}
+            {!isLoading && !error && (
+                <>
+                    <div ref={playerRef} id="youtube-player" style={{ width: '0', height: '0' }}></div>
+                    <div className={cn("flex items-center gap-2")}>
+                        <button onClick={handlePlayPause}>
+                            <Icon name={pause ? "Play" : "Pause"} />
+                        </button>
+                        <button onClick={handlePrevious}><Icon name={"Previous"} /></button>
+                        <button onClick={handleNext}><Icon name={"Next"} /></button>
+                        <VolumeSetting player={player} />
+                    </div>
+                </>
+            )}
         </>
     );
 

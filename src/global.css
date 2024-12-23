@@ -64,13 +64,13 @@
     @apply bg-background text-foreground;
   }
 }
-@font-face {
-  font-family: 'pixel';  
-  src: url('/VT223.ttf') format('truetype');
+  @font-face {
+    font-family: 'pixel';  
+    src: url('/VT223.ttf') format('truetype');
 
-  font-weight: normal;
-  font-style: normal;
-}
-body {
-  font-family: 'pixel', sans-serif;  /* Áp dụng font cho toàn bộ trang */
-}
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    font-family: 'pixel', sans-serif;  /* Áp dụng font cho toàn bộ trang */
+  }

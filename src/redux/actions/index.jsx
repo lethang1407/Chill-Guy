@@ -30,3 +30,20 @@ export const setPrevious = () => ({
     type: "SET_PREVIOUS",
     payload: null,
 })
+export const setSelectedDate = (date) => ({
+    type: "SET_SELECTED_DATE",
+    payload: date,
+  });
+  
+  export const setEvent = ({ date, event }) => ({
+    type: "SET_EVENT",
+    payload: { date, event },
+  });
+  export const deleteEvent = (date) => ({
+    type: "DELETE_EVENT",
+    payload: date,
+});
+export const editEvent = ({ date, event }) => ({
+    type: "EDIT_EVENT",
+    payload: { date, event },
+})
