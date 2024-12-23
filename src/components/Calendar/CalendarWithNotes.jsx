@@ -63,9 +63,6 @@ const CalendarWithNotes = () => {
         dispatch(setSelectedDate(date.format("YYYY-MM-DD")));
         setIsModalOpen(true);
     };
-    const isEventDay = (day) => {
-        return reduxEvents[day.format("YYYY-MM-DD")] !== undefined;
-    };
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div style={{ display: "flex", gap: "10px", height: "36vh", overflowY: "auto" }}>

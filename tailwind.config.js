@@ -61,6 +61,7 @@ export default {
       filter: {
         'green-glow': 'drop-shadow(0px 0px 1px hsl(100, 100%, 80%)) drop-shadow(0px 0px 8px green)',
         'red-glow': 'drop-shadow(0px 0px 1px hsl(100, 100%, 80%)) drop-shadow(0px 0px 8px red)',
+        
       },
   },
 },

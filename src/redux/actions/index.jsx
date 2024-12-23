@@ -47,3 +47,19 @@ export const editEvent = ({ date, event }) => ({
     type: "EDIT_EVENT",
     payload: { date, event },
 })
+export const addTodoList = (todo) => ({
+    type: "ADD_TODO_LIST",
+    payload: todo
+})
+export const editTodoList = (todo) => ({
+    type: "EDIT_TODO_LIST",
+    payload: todo
+})
+export const deleteTodoList = (todo) => ({
+    type: "DELETE_TODO_LIST",
+    payload: todo
+})
+export const ToggleTodoList = (id) => ({
+    type: "TOGGLE_TODO_LIST",
+    payload: id
+})

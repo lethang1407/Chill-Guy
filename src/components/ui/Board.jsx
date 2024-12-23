@@ -75,7 +75,7 @@ function Window({ children, name }) {
                   <div
                     className="cursor-move p-2 bg-gray-200 rounded-t-md"
                     style={{
-                        userSelect: "none", // Ngăn chặn văn bản bị bôi đen khi kéo
+                        userSelect: "none", 
                     }}
                     onMouseDown={handleMouseDown}
                 >
@@ -83,13 +83,13 @@ function Window({ children, name }) {
                 </div>
                 <button
                     className={cn(
-                        "filter-none p-2  rounded-md hover:text-white transition-all duration-100 absolute top-1 right-1"
+                        "filter-none p-2   rounded-md hover:text-white transition-all duration-100 absolute top-1 right-1"
                     )}
                     onClick={close}
                 >
-                    <Icon name={"Close"} className={"!filter-none text-red-500"} />
+                    <Icon name={"Close"} className={"!filter-none hover:bg-slate-200 text-red-500"} />
                 </button>
-                <div>{cloneElement(children, { onCloseModal: close })}</div>
+                <div >{cloneElement(children, { onCloseModal: close })}</div>
             </div>
         </div>,
         document.body

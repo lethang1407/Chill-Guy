@@ -10,3 +10,7 @@ export const SET_EVENT = 'SET_EVENT';
 export const SET_SELECTED_DATE = 'SET_SELECTED_DATE';
 export const DELETE_EVENT = "DELETE_EVENT";
 export const EDIT_EVENT = "EDIT_EVENT";
+export const ADD_TODO_LIST = "ADD_TODO_LIST";
+export const DELETE_TODO_LIST = "DELETE_TODO_LIST";
+export const EDIT_TODO_LIST = "EDIT_TODO_LIST";
+export const TOGGLE_TODO_LIST = "TOGGLE_TODO_LIST";

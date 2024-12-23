@@ -6,17 +6,20 @@ import Logo from './logo';
 import React from "react";
 import Menus from './Menus';
 import Calendar from '../Calendar/Calendar';
+import TodoListContent from '../TodoList/TodoListContent';
 
 function Header() {
     return (
         <div className={cn("px-9  flex items-center justify-between  ")}>
             <Logo />
-            <div className={cn("flex items-center justify-end gap-5")}>
+            <div className={cn("flex items-center justify-end ")}>
             <SceneButton />
             <Menus>
                 <MusicButton />
             </Menus>
             <Calendar />
+            <TodoListContent />
+            
             </div>
         </div>
     )

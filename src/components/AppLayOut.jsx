@@ -5,8 +5,8 @@ import Header from './ui/header';
 
 function AppLayOut() {
     return (
-        <div className={cn(" relative min-h-screen ")}>   
-             <Scenes />
+        <div className={cn(" relative min-h-screen ")}>
+            <Scenes />
             <Header />
             <Music />
         </div>
