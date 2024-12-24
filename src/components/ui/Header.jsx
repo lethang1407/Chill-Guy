@@ -8,6 +8,7 @@ import Menus from './Menus';
 import Calendar from '../Calendar/Calendar';
 import TodoListContent from '../TodoList/TodoListContent';
 import Time from '../Time/Time';
+import SoundModal from '../Sound/SoundModal';
 
 function Header() {
     return (
@@ -18,9 +19,11 @@ function Header() {
             <Menus>
                 <MusicButton />
             </Menus>
+            <SoundModal  />
             <Calendar />
             <TodoListContent />
             <Time />
+            
             </div>
         </div>
     )

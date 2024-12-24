@@ -6,6 +6,7 @@ import audioReducer  from './audioReducer';
 import calendarReducer from './CalendarReducer';
 import  todolistReducer  from './todolistReducer';
 import  pomodoroReducer  from './pomodoroReducer';
+import soundReducer from './soundReducer';
  const rootReducer = combineReducers({
     scene: sceneReducer,
     music: musicReducer,
@@ -13,6 +14,7 @@ import  pomodoroReducer  from './pomodoroReducer';
     event: calendarReducer,
     todolist: todolistReducer,
     pomodoro: pomodoroReducer,
+    sound: soundReducer
 });
 
 export {rootReducer};

@@ -51,7 +51,7 @@ export default function VolumeSetting({ player, maxSetting = 10 }) {
     return (
         <div className={cn("flex items-center gap-2")}>
             <div onClick={handletoggleMute} className="cursor-pointer">
-                {volume > 0 ? <Icon name={"Volume"} /> : <Icon name={"Mute"} />}
+                {volume > 0 ? <Icon name={"Volume"} /> : <Icon className={cn("filter-red-glow")} name={"Mute"} />}
             </div>
             <div
                 ref={containerRef}

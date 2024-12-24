@@ -83,3 +83,11 @@ export const togglePomodoroMode = (isPomodoro) => ({
     type: "TOGGLE_POMODORO_MODE",
     payload: isPomodoro,
 });
+export const setVolumeSound = (id, volume) => ({
+    type: "SET_SOUND_VOLUME",
+    payload: { id, volume }
+});
+export const toggleMuteSound = (id) => ({
+    type: "TOGGLE_MUTE_SOUND",
+    payload: { id }
+})
