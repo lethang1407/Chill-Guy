@@ -9,12 +9,14 @@ import Calendar from '../Calendar/Calendar';
 import TodoListContent from '../TodoList/TodoListContent';
 import Time from '../Time/Time';
 import SoundModal from '../Sound/SoundModal';
+import Expand from '../Expand/Expand';
 
 function Header() {
     return (
         <div className={cn("px-9  flex items-center justify-between  ")}>
             <Logo />
             <div className={cn("flex items-center justify-end ")}>
+            <Expand />
             <SceneButton />
             <Menus>
                 <MusicButton />

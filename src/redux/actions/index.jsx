@@ -91,3 +91,6 @@ export const toggleMuteSound = (id) => ({
     type: "TOGGLE_MUTE_SOUND",
     payload: { id }
 })
+export const toggleFullScreen = () => ({
+    type: "TOGGLE_FULLSCREEN",
+  });
