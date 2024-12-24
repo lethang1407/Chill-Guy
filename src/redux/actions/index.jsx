@@ -94,3 +94,11 @@ export const toggleMuteSound = (id) => ({
 export const toggleFullScreen = () => ({
     type: "TOGGLE_FULLSCREEN",
   });
+  export const setVideoUrl = (url) => ({
+    type: "SET_VIDEO_URL",
+    payload: url,
+});
+
+export const togglePlaying = () => ({
+    type: "TOGGLE_PLAYING_VIDEO",
+});

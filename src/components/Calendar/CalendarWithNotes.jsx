@@ -9,7 +9,7 @@ import dayjs from "dayjs";
 import { toast } from "react-hot-toast";
 import { useLocalStorageState } from "../../hooks/useLocalStorage";
 
-const CalendarWithNotes = () => {
+const CalendarWithNotes = ({minimized}) => {
     const dispatch = useDispatch();
     const { selectedDate, events: reduxEvents } = useSelector((state) => state.event);
     const [events, setEvents] = useLocalStorageState({}, "calendar-events");
@@ -63,6 +63,9 @@ const CalendarWithNotes = () => {
         dispatch(setSelectedDate(date.format("YYYY-MM-DD")));
         setIsModalOpen(true);
     };
+    if (minimized) {
+        return null; 
+    }
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div style={{ display: "flex", gap: "10px", height: "36vh", overflowY: "auto" }}>

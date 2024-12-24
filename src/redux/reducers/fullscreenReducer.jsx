@@ -1,7 +1,7 @@
 import { TOGGLE_FULLSCREEN } from "../constantsType/actionType";
 
 const initialState = {
-  fullscreen: false, // Mặc định không ở chế độ fullscreen
+  fullscreen: false, 
 };
 
 const fullscreenReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const fullscreenReducer = (state = initialState, action) => {
     case TOGGLE_FULLSCREEN:
       return {
         ...state,
-        fullscreen: !state.fullscreen, // Đảo ngược trạng thái fullscreen
+        fullscreen: !state.fullscreen, 
       };
     default:
       return state;

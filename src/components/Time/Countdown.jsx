@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { startPomodoro, stopPomodoro, resetPomodoro, setPomodoroTime, togglePomodoroMode } from "../../redux/actions";
 import toast from "react-hot-toast";
 
-function Countdown() {
+function Countdown({minimized}) {
     const { time, isCounting, isPomodoroMode } = useSelector((state) => state.pomodoro);
     const dispatch = useDispatch();
     const [hours, setHours] = useState(0);
@@ -57,7 +57,9 @@ function Countdown() {
     const handleTogglePomodoroMode = () => {
         dispatch(togglePomodoroMode(!isPomodoroMode)); 
     };
-
+    if (minimized) {
+        return null; 
+    }
     return (
         <div>
             <h2 className="text-center">🔥 Focus Boost Mode ⏱</h2>

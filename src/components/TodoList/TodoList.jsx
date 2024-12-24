@@ -5,7 +5,7 @@ import { addTodoList, deleteTodoList, ToggleTodoList } from "../../redux/actions
 import { useState } from "react";
 import TodoItem from "./TodoItem";
 import { toast } from "react-hot-toast"
-function TodoList() {
+function TodoList({minimized}) {
     const { todoList } = useSelector((state) => state.todolist);
     const dispatch = useDispatch();
     const [task, setTask] = useState("");
@@ -30,6 +30,9 @@ function TodoList() {
         dispatch(deleteTodoList(id));
         toast.success("Task deleted successfully!");
     };
+    if (minimized) {
+        return ; 
+    }
     return (
         <>
             <div className={cn("px-10 py-4 overflow-y-auto scroll-smooth h-[40vh]")}>

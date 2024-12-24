@@ -8,6 +8,7 @@ import  todolistReducer  from './todolistReducer';
 import  pomodoroReducer  from './pomodoroReducer';
 import soundReducer from './soundReducer';
 import fullscreenReducer from './fullscreenReducer';
+import videoUrlReducer from './videourlReducer';
  const rootReducer = combineReducers({
     scene: sceneReducer,
     music: musicReducer,
@@ -16,7 +17,8 @@ import fullscreenReducer from './fullscreenReducer';
     todolist: todolistReducer,
     pomodoro: pomodoroReducer,
     sound: soundReducer,
-    fullscreen: fullscreenReducer
+    fullscreen: fullscreenReducer,
+    videourl: videoUrlReducer
 });
 
 export {rootReducer};

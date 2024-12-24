@@ -10,7 +10,7 @@ function Time() {
                 <ModalButton icon={<Icon name="Clock" />} />
             </Board.Open>
             <Board.Window name="time">
-                <Countdown />
+            <Countdown />
             </Board.Window>
         </Board>
     )

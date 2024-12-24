@@ -30,6 +30,7 @@ function Window({ children, name }) {
     const { openName, close } = useContext(BoardContext);
     const [position, setPosition] = useState({ x: 100, y: 100 });
     const [dragging, setDragging] = useState(false);
+    const [minimized, setMinimized] = useState(false);
     const dragStartRef = useRef(null);
 
     const handleMouseDown = (e) => {
@@ -65,24 +66,31 @@ function Window({ children, name }) {
         >
             <div
                 className={cn(
-                    "w-100px h-[50vh] fixed bg-stone-100 shadow-slate-800 p-2 rounded-md"
+                    " fixed bg-stone-100 shadow-slate-800 p-2 rounded-md", minimized ? "h-[10vh] w-[30vh]" : "h-[50vh] w-100px"
                 )}
                 style={{
                     top: `${position.y}px`,
                     left: `${position.x}px`,
                 }}
-               
+
             >
-                  <div
+                <div
                     className="cursor-move p-2 bg-gray-200 rounded-t-md"
                     style={{
-                        userSelect: "none", 
+                        userSelect: "none",
                     }}
                     onMouseDown={handleMouseDown}
                 >
                     <span>Drag Me</span>
                 </div>
                 <button
+                    className="absolute top-1 right-10 p-2 hover:bg-gray-300 rounded"
+                    onClick={() => setMinimized(!minimized)}
+                >
+                    {minimized ? <Icon name={"Maximize"} /> : <Icon name={"Minimize"} />}
+                </button>
+                {!minimized && (
+                    <button
                     className={cn(
                         "filter-none p-2   rounded-md hover:text-white transition-all duration-100 absolute top-1 right-1"
                     )}
@@ -90,7 +98,11 @@ function Window({ children, name }) {
                 >
                     <Icon name={"Close"} className={"!filter-none hover:bg-slate-200 text-red-500"} />
                 </button>
-                <div >{cloneElement(children, { onCloseModal: close })}</div>
+                )}
+                <div >{cloneElement(children, {
+                    onCloseModal: close,
+                    minimized,
+                })}</div>
             </div>
         </div>,
         document.body

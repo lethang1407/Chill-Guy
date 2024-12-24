@@ -42,7 +42,6 @@ function Expand() {
     };
   }, []);
 
-  // Đảm bảo trạng thái icon đúng
   const iconName = localFullscreen ? "UnScale" : "Scale";
 
   return (
