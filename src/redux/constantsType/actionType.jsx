@@ -1,4 +1,6 @@
 export const SET_SCENE = 'SET_SCENE';
+export const ADD_SCENE = 'ADD_SCENE';
+export const DELETE_SCENE = 'DELETE_SCENE';
 export const SET_MUSIC = 'SET_MUSIC';
 export const SET_VOLUME = 'SET_VOLUME';
 export const SET_TOGGLE_MUTE = 'SET_TOGGLE_MUTE';

@@ -3,6 +3,14 @@ export const setScene = (scene) => ({
     type: "SET_SCENE",
     payload: scene
 });
+export const addScene = (scene) => ({
+    type: "ADD_SCENE",
+    payload: scene
+})
+export const deleteScene = (scene) => ({
+    type: "DELETE_SCENE",
+    payload: scene
+})
 export const setMusic = (name, des, url) => ({
     type: "SET_MUSIC",
     payload: { name, des, url },
