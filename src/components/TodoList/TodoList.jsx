@@ -35,14 +35,14 @@ function TodoList({minimized}) {
     }
     return (
         <>
-            <div className={cn("px-10 py-4 overflow-y-auto scroll-smooth h-[40vh]")}>
+            <div className={cn("px-10 py-4 overflow-y-auto scroll-smooth h-[30vh] text-white")}>
                 <h2 className={cn("text-2xl  mb-3 text-center")}>📚 TO DO LIST 📜</h2>
                 <form className={cn("flex items-center")} onSubmit={handleAddTodo}    >
                     <Input type="text" placeholder="Add a task..."
                         value={task}
                         onChange={(e) => setTask(e.target.value)}
                     />
-                    <button type="submit" className={cn("bg-green-400 px-2 py-1 rounded-md ml-2")}>ADD</button>
+                    <button type="submit" className={cn("bg-green-700 px-2 py-1 rounded-md ml-2")}>ADD</button>
                 </form>
                 {/* <TodoListContent /> */}
                 <div>

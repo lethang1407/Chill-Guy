@@ -66,7 +66,7 @@ function Window({ children, name }) {
         >
             <div
                 className={cn(
-                    " fixed bg-stone-100 shadow-slate-800 p-2 rounded-md", minimized ? "h-[10vh] w-[30vh]" : "h-[50vh] w-100px"
+                    " fixed bg-slate-700/80 shadow-slate-800 p-2 rounded-md", minimized ? "h-[10vh] w-[30vh]" : "h-[40vh] w-100px"
                 )}
                 style={{
                     top: `${position.y}px`,
@@ -75,7 +75,7 @@ function Window({ children, name }) {
 
             >
                 <div
-                    className="cursor-move p-2 bg-gray-200 rounded-t-md"
+                    className="cursor-move p-2 bg-gray-500 rounded-t-md text-white"
                     style={{
                         userSelect: "none",
                     }}
@@ -92,11 +92,11 @@ function Window({ children, name }) {
                 {!minimized && (
                     <button
                     className={cn(
-                        "filter-none p-2   rounded-md hover:text-white transition-all duration-100 absolute top-1 right-1"
+                        " p-2 rounded-md  transition-all duration-100 absolute top-1 right-1"
                     )}
                     onClick={close}
                 >
-                    <Icon name={"Close"} className={"!filter-none hover:bg-slate-200 text-red-500"} />
+                    <Icon name={"Close"} className={"filter-red-glow text-white rounded-sm"} />
                 </button>
                 )}
                 <div >{cloneElement(children, {

@@ -7,7 +7,7 @@ function Calendar() {
     return (
         <Board>
             <Board.Open opens="calendar">
-                <ModalButton icon={<Icon name="Calendar" />} />
+                <ModalButton icon={<Icon name="Calendar" />} tooltip="Event Calendar"/>
             </Board.Open>
                 <Board.Window name="calendar">
                     <CalendarWithNotes />

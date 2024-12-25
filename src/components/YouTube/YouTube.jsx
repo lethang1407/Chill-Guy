@@ -8,10 +8,10 @@ import YouTubeUrlList from "./YouTubeUrlList";
 function YouTube({ minimized }) {
 
     return (
-        <div className={cn("overflow-y-auto h-[40vh]")}>
+        <div className={cn("overflow-y-auto h-[30vh]")}>
             {minimized ? null : (
                 <>
-                    <h1 className={cn("text-xl  text-center")}>🎈 Trình phát video YouTube 🔥</h1>
+                    <h1 className={cn("text-xl text-white text-center")}>🎈 Trình phát video YouTube 🔥</h1>
                     <VideoInput />
                 </>
             )}

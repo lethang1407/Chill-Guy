@@ -10,7 +10,7 @@ function TodoItem({ todo,handleToggleComplete ,handleDeleteTodo}) {
                      {todo.completed ? (
                     <Icon className={cn("text-green-500 !filter-none")} name="Check-off" />
                 ) : (
-                    <Icon className={cn("text-black !filter-none")} name="Check-on" />
+                    <Icon className={cn("text-white !filter-none")} name="Check-on" />
                 )}
                         <span className={cn(todo.completed && "line-through","ml-2")}>{todo.name}</span>
                 </button>   

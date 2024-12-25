@@ -47,7 +47,7 @@ function Expand() {
   return (
     <ModalButton
       onClick={fullscreenHandler}
-      icon={<Icon name={iconName} />}
+      icon={<Icon name={iconName} /> }tooltip={localFullscreen ? "Exit Fullscreen" : "Fullscreen"}
     />
   );
 }

@@ -28,8 +28,8 @@ function Window({ children,name }) {
     if (name !== openName) return null;
     return createPortal(
         <div className={cn("fixed inset-0 bg-black/50 w-full h-screen z-50 transition-all duration-500 ease-in-out backdrop-blur-sm")}>
-            <div className={cn("w-[90%] h-[90%] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-stone-100 shadow-slate-800 p-2 rounded-md transition-all duration-500 ease-in-out ")} ref={ref}>
-                <button className={cn("filter-none p-2 hover:bg-red-500 rounded-md hover:text-white transition-all duration-100 absolute top-1 right-1  ")} onClick={close}><Icon name={"Close"} className={"!filter-none text-black hover:text-white  "} /></button>
+            <div className={cn("w-[90%] h-[90%] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-500/70  shadow-slate-800 p-2 rounded-md transition-all duration-500 ease-in-out ")} ref={ref}>
+                <button className={cn("filter-none p-2 hover:bg-red-500  bg-black rounded-md text-white transition-all duration-100 absolute top-1 right-4  ")} onClick={close}><Icon name={"Close"} className={"!filter-none text-white"} /></button>
                 <div>{cloneElement(children, { onCloseModal: close })}</div>
             </div>
         </div>,

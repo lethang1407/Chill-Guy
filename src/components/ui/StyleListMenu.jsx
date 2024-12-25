@@ -5,7 +5,7 @@ const StyleListMenu = forwardRef(({ position, children }, ref) => {
     return (
         <ul
             ref={ref}  
-            className={cn("fixed bg-stone-100 shadow-slate-800 p-2  transition-all duration-500 ease-in-out  shadow-md rounded-md")}
+            className={cn("fixed bg-slate-500/70 shadow-slate-800 p-2 text-white transition-all duration-500 ease-in-out  shadow-md rounded-md")}
             style={{
                 right: `${position.x}px`,
                 top: `${position.y}px`,

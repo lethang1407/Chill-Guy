@@ -7,7 +7,7 @@ function SoundModal() {
     return (
        <Board>
             <Board.Open opens="soundModal">
-                <ModalButton icon={<Icon name="Rain" />} /> 
+                <ModalButton icon={<Icon name="Rain" />} tooltip="Set sound" /> 
             </Board.Open>
             <Board.Window name="soundModal"> 
                 <Sound />

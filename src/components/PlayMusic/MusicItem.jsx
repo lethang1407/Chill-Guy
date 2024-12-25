@@ -10,7 +10,7 @@ function MusicItem({name,  des, url}) {
     return (
         <div onClick={handleClick} className={cn("p-2 hover:bg-slate-200 rounded-md hover:text-slate-800 transition-all duration-100 cursor-pointer",
             isSelected
-            ? "border-blue-500 bg-blue-100 shadow-lg"
+            ? "border-blue-500 bg-blue-500 shadow-lg"
             : "border-slate-500 hover:shadow-3xl")}
             >
             {name}

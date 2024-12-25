@@ -7,7 +7,7 @@ function TodoListContent() {
     return (
         <Board>
             <Board.Open opens="todoList">
-                <ModalButton icon={<Icon name="List" />} />
+                <ModalButton icon={<Icon name="List" />} tooltip="Todo List" />
             </Board.Open>
             <Board.Window name="todoList">
                 <TodoList />

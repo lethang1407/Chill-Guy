@@ -7,7 +7,7 @@ function Time() {
     return (
         <Board>
             <Board.Open opens="time">
-                <ModalButton icon={<Icon name="Clock" />} />
+                <ModalButton icon={<Icon name="Clock" />}  tooltip="Set Time" />
             </Board.Open>
             <Board.Window name="time">
             <Countdown />

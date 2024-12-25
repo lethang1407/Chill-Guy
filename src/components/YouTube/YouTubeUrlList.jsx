@@ -9,12 +9,11 @@ function YouTubeUrlList({ isMinimized }) {
    if(isMinimized) return null;
     return (
         <div className={cn("flex flex-col items-center space-y-4 p-1")}>
-            <p>Danh sách URL</p>
+            <p className={cn("text-white ")}>Danh sách URL</p>
             {listUrls.map((item, index) => (
                 <div key={index} className={cn("flex items-center justify-between w-full max-w-md p-2 border-b")}>
-                    <p className={cn("flex-1 text-left flex")}>
-                        <strong>{item.url.name}</strong>
-                        
+                    <p className={cn("flex-1 text-left flex text-white")}>
+                        <p>{item.url.name}</p>
                     </p>
                     <button
                         className={cn("bg-blue-400 text-white mr-3 p-1 rounded")}

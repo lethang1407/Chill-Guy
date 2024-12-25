@@ -7,7 +7,7 @@ function SceneButton() {
     return (
         <Modal>
             <Modal.Open opens="sceneList">
-                <ModalButton icon={<Icon name="MultiImage"  />}>
+                <ModalButton icon={<Icon name="MultiImage"/>} tooltip="Set Scene">
                 </ModalButton>
             </Modal.Open>
             <Modal.Window name="sceneList" >

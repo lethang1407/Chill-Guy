@@ -17,8 +17,8 @@ export default function VolumeSettings({minimized}) {
     return null; 
 }
   return (
-    <div className={cn("space-y-4 px-5 overflow-y-auto h-[40vh]")}>
-      <h2 className={cn("text-xl my-3")}>🌧 Sound Settings 🌳</h2>
+    <div className={cn("space-y-4 px-5 overflow-y-auto h-[30vh]")}>
+      <h2 className={cn("text-xl my-3 text-white")}>🌧 Sound Settings 🌳</h2>
       {sounds.map((sound) => (
         <SoundItem
           key={sound.id}

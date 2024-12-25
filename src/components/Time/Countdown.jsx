@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { startPomodoro, stopPomodoro, resetPomodoro, setPomodoroTime, togglePomodoroMode } from "../../redux/actions";
 import toast from "react-hot-toast";
+import { cn } from "../../lib/utils";
 
 function Countdown({minimized}) {
     const { time, isCounting, isPomodoroMode } = useSelector((state) => state.pomodoro);
@@ -61,9 +62,9 @@ function Countdown({minimized}) {
         return null; 
     }
     return (
-        <div>
-            <h2 className="text-center">🔥 Focus Boost Mode ⏱</h2>
-            <h1 className="text-4xl font-bold">⏳ {formatTime(time)}</h1>
+        <div className={cn("overflow-y-auto h-[30vh]")} >
+            <h2 className={cn("text-white text-center")}>🔥 Focus Boost Mode ⏱</h2>
+            <h1 className={cn("text-white text-4xl font-bold")}>⏳ {formatTime(time)}</h1>
             <div className="mt-4">
                 <button
                     className={`bg-${isPomodoroMode ? "red" : "green"}-500 text-white px-4 py-1 rounded`}
@@ -73,13 +74,13 @@ function Countdown({minimized}) {
                 </button>
             </div>
             {isPomodoroMode ? null : (
-                <div className="flex gap-2 mt-4">
+                <div className={cn("flex gap-2 mt-4")}>
                     <input
                         type="number"
                         value={hours}
                         onChange={(e) => handleInputChange(setHours, Number(e.target.value), 24)}
                         placeholder="Giờ"
-                        className="w-16 border px-2 py-1 text-center rounded"
+                        className={cn("w-16 border px-2 py-1 text-center rounded")}
                         min="0"
                         max="24"
                     />
@@ -88,7 +89,7 @@ function Countdown({minimized}) {
                         value={minutes}
                         onChange={(e) => handleInputChange(setMinutes, Number(e.target.value), 59)}
                         placeholder="Phút"
-                        className="w-16 border px-2 py-1 text-center rounded"
+                        className={cn("w-16 border px-2 py-1 text-center rounded")}
                         min="0"
                         max="59"
                     />
@@ -97,12 +98,12 @@ function Countdown({minimized}) {
                         value={seconds}
                         onChange={(e) => handleInputChange(setSeconds, Number(e.target.value), 59)}
                         placeholder="Giây"
-                        className="w-16 border px-2 py-1 text-center rounded"
+                        className={cn("w-16 border px-2 py-1 text-center rounded")}
                         min="0"
                         max="59"
                     />
                     <button
-                        className="bg-blue-500 text-white px-3 py-1 rounded"
+                        className={cn("bg-blue-500 text-white px-3 py-1 rounded")}
                         onClick={handleSetTime}
                     >
                         Set Time
@@ -111,19 +112,19 @@ function Countdown({minimized}) {
             )}
             <div className="flex gap-2 mt-4">
                 <button
-                    className="bg-green-500 text-white px-4 py-1 rounded"
+                    className={cn("bg-green-500 text-white px-4 py-1 rounded")}
                     onClick={handleStartPomodoro}
                 >
                     Start
                 </button>
                 <button
-                    className="bg-yellow-500 text-white px-4 py-1 rounded"
+                    className={cn("bg-yellow-500 text-white px-4 py-1 rounded")}
                     onClick={handleStopPomodoro}
                 >
                     Stop
                 </button>
                 <button
-                    className="bg-red-500 text-white px-4 py-1 rounded"
+                    className={cn("bg-red-500 text-white px-4 py-1 rounded")}
                     onClick={handleResetPomodoro}
                 >
                     Reset

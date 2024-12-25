@@ -27,7 +27,7 @@ function SceneList({ onCloseModal }) {
     };
     return (
 
-        <ul className={cn(" flex gap-2 flex-wrap overflow-y-auto max-h-[80vh] scroll-smooth items-center justify-center mt-5 ")} >
+        <ul className={cn(" flex gap-2 flex-wrap overflow-y-auto max-h-[80vh] scroll-smooth items-center justify-center mt-6 ")} >
             {SceneListData.map((scene) => (
                 <SceneItem key={scene.name} name={scene.name} image={scene.image} isCustom={scene.isCustom} />
             ))}

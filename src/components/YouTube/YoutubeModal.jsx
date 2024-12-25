@@ -7,7 +7,7 @@ function YoutubeModal() {
     return (
         <Board>
             <Board.Open opens="youtubeModal">
-                <ModalButton icon={<Icon name="Youtube" />} />
+                <ModalButton icon={<Icon name="Youtube" />} tooltip="Watch Youtube"/>
             </Board.Open>
             <Board.Window name="youtubeModal">
                 <YouTube />

@@ -68,7 +68,7 @@ const CalendarWithNotes = ({minimized}) => {
     }
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <div style={{ display: "flex", gap: "10px", height: "36vh", overflowY: "auto" }}>
+            <div style={{ display: "flex", gap: "10px", height: "30vh", overflowY: "auto",color: "white" }}>
                 {/* Lịch */}
                 <div style={{ flex: 1, overflowY: "auto", scrollBehavior: "smooth", height: "100%" }}>
                     <DateCalendar
@@ -76,13 +76,18 @@ const CalendarWithNotes = ({minimized}) => {
                         onChange={handleSelectDate}
                         
                         sx={{
+                            color: "white",
                             width: "auto",
                             flexGrow: 1,
                             overflowY: "auto",
                             fontFamily: 'pixel, sans-serif !important',
+                            '& .css-1ckov0h-MuiSvgIcon-root': {
+                                color: "white", 
+                            },
                             '& .css-cyfsxc-MuiPickersCalendarHeader-labelContainer,.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel,.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root,.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root': {
                                 fontFamily: "'pixel', sans-serif !important",
                                 fontSize: '17px',
+                                color: "white",
                             },
                             "& .MuiDayPicker-day.Mui-selected": {
                                 backgroundColor: "blue", 
@@ -125,7 +130,7 @@ const CalendarWithNotes = ({minimized}) => {
                                         value={newNote}
                                         onChange={(e) => setNewNote(e.target.value)}
                                         placeholder="Thêm hoặc chỉnh sửa ghi chú cho ngày này"
-                                        style={{ width: "100%", height: "100px" }}
+                                        style={{ width: "100%", height: "100px",color: "black" }}
                                     />
                                     <button onClick={handleSaveNote}
                                         className={cn("p-1 text-white hover:text-xl transition-all duration-200 bg-blue-500")}

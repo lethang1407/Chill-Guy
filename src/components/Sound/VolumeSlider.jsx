@@ -21,7 +21,7 @@ function VolumeSlider({ soundId, volume, onVolumeChange, }) {
         window.removeEventListener("mouseup", handleMouseUp);
       };
   
-      // Đảm bảo vòng lặp sự kiện chạy liên tục khi kéo chuột
+
       window.addEventListener("mousemove", handleMouseMove);
       window.addEventListener("mouseup", handleMouseUp);
     };

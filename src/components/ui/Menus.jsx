@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext,  useState } from "react";
 import Icon from "./Icon";
 import { useOutSideClick } from "../../hooks/useOutSideClick";
 import StyleListMenu from "./StyleListMenu";
-import { cn } from "../../lib/utils";
 import ModalButton from "./ModalButton";
 import { createPortal } from "react-dom";
 
@@ -21,16 +20,10 @@ function Menus({ children }) {
         </MenusContext.Provider>
     );
 }
-
-
-
 function Toggle({ name, icon }) {
     const { openName, open, close, setPosition } = useContext(MenusContext);
-    
-
     function handleClick(e) {
         e.stopPropagation();
-        console.log("Da dong")
         const rect = e.target.closest("button").getBoundingClientRect();
         setPosition({
           x: window.innerWidth - rect.width - rect.x,
