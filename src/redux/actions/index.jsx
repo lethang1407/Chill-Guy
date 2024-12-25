@@ -102,3 +102,13 @@ export const toggleFullScreen = () => ({
 export const togglePlaying = () => ({
     type: "TOGGLE_PLAYING_VIDEO",
 });
+
+export const addVideoUrl = (url, name) => ({
+    type:"ADD_VIDEO_URL",
+    payload: { url, name },
+});
+
+export const deleteVideoUrl = (url) => ({
+    type: "DELETE_VIDEO_URL",
+    payload: url,
+});

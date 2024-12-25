@@ -4,28 +4,26 @@ import ReactPlayer from "react-player";
 import { cn } from "../../lib/utils";
 
 
+
 function VideoPlayer({ isMinimized }) {
     const dispatch = useDispatch();
     const { url, playing } = useSelector((state) => state.videourl);
-
-     
-
-    // Hàm bật/tắt video
     const handlePlayPause = () => {
         dispatch(togglePlaying());
     };
 
-    // Kiểm tra URL hợp lệ
-    const isValidUrl = ReactPlayer.canPlay(url);
 
+    const isValidUrl = ReactPlayer.canPlay(url);
+  
     return (
-        <div className={cn("flex flex-col items-center space-y-4 p-3")}>
+        <div className={cn("flex flex-col items-center space-y-4 mt-1 ")}>
            
             {isValidUrl ? (
-                <ReactPlayer
+                <ReactPlayer    
                     url={url}
                     playing={playing}
                     muted={false} 
+                    controls={true}
                     width={isMinimized ? "0px" : "100%"} 
                     height={isMinimized ? "0px" : "100%"}
                     onEnded={handlePlayPause} 
