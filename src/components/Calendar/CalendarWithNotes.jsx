@@ -84,7 +84,7 @@ const CalendarWithNotes = ({minimized}) => {
                             '& .css-1ckov0h-MuiSvgIcon-root': {
                                 color: "white", 
                             },
-                            '& .css-cyfsxc-MuiPickersCalendarHeader-labelContainer,.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel,.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root,.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root': {
+                            '& .css-cyfsxc-MuiPickersCalendarHeader-labelContainer,.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel,.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root,.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root,.css-1om332n': {
                                 fontFamily: "'pixel', sans-serif !important",
                                 fontSize: '17px',
                                 color: "white",
@@ -94,18 +94,13 @@ const CalendarWithNotes = ({minimized}) => {
                                 color: "white",
                                 borderRadius: "50%", 
                             },
+                            
                            
                         }
                         }
                         slotProps={{
                             day: {
-                              className: '!text-white !font-[pixel]',  
-                            },
-                            dayOfWeekLabel: {
-                              className: '!text-white !font-[pixel]',  
-                            },
-                            calendarHeader: {
-                              className: '!text-white !font-[pixel]',  
+                              className: 'text-xl !text-white !font-[pixel]',  
                             },
                           }}
                         dayOfWeekFormatter={(date) => date.format('ddd')}
