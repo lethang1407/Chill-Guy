@@ -2,7 +2,7 @@
 import { cn } from '../../lib/utils';
 import MusicButton from '../PlayMusic/MusicButton';
 import SceneButton from '../Scene/SceneButton';
-import Logo from './logo';
+import Logo from './Logo';
 import React from "react";
 import Menus from './Menus';
 import Calendar from '../Calendar/Calendar';

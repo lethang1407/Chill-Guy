@@ -106,7 +106,7 @@ const CalendarWithNotes = ({minimized}) => {
                     {isModalOpen && selectedDateObj && (
                         <div className={cn("gap-4")}>
                             <div className={cn("flex justify-end")}>
-                                <button className={cn(" py-1 px-3 mb-3 hover:text-xl transition-all duration-200")} onClick={() => setIsModalOpen(false)}>Đóng</button>
+                                <button className={cn(" py-1 px-3  hover:text-xl transition-all duration-200")} onClick={() => setIsModalOpen(false)}>Đóng</button>
                             </div>
                             <h3>Sự kiện cho ngày: {selectedDateObj.format("YYYY-MM-DD")}</h3>
                             {reduxEvents[selectedDateObj.format("YYYY-MM-DD")] && !isEditing ? (

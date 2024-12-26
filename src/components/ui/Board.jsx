@@ -2,6 +2,7 @@ import { cloneElement, createContext, useContext, useState, useRef } from "react
 import { createPortal } from "react-dom";
 import { cn } from "../../lib/utils";
 import Icon from "./Icon";
+import ModalButton from "./ModalButton";
 
 const BoardContext = createContext();
 
@@ -30,9 +31,16 @@ function Window({ children, name }) {
     const { openName, close } = useContext(BoardContext);
     const [position, setPosition] = useState({ x: 100, y: 100 });
     const [dragging, setDragging] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
     const [minimized, setMinimized] = useState(false);
     const dragStartRef = useRef(null);
-
+    const handleClose = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            close();
+            setIsClosing(false);
+        }, 500);
+    };
     const handleMouseDown = (e) => {
         e.stopPropagation();
         setDragging(true);
@@ -66,7 +74,7 @@ function Window({ children, name }) {
         >
             <div
                 className={cn(
-                    " fixed bg-slate-700/80 shadow-slate-800 p-2 rounded-md", minimized ? "h-[10vh] w-[30vh]" : "h-[40vh] w-100px"
+                    "fixed bg-slate-700/80 shadow-slate-800 p-2 rounded-md", minimized ? "h-[10vh] w-[30vh]" : "h-[40vh] w-100px", isClosing ? "opacity-0 animate-scaleOut" : "opacity-100 animate-scaleIn"
                 )}
                 style={{
                     top: `${position.y}px`,
@@ -83,25 +91,32 @@ function Window({ children, name }) {
                 >
                     <span>Drag Me</span>
                 </div>
-                <button
-                    className="absolute top-1 right-10 p-2 hover:bg-gray-300 rounded"
-                    onClick={() => setMinimized(!minimized)}
-                >
-                    {minimized ? <Icon name={"Maximize"} /> : <Icon name={"Minimize"} />}
-                </button>
+
+                <div className={cn("absolute top-2 right-12")}>
+                    <ModalButton
+                        className={cn(" p-2  rounded")}
+                        onClick={() => setMinimized(!minimized)}
+                    >
+                        {minimized ? <Icon name={"Maximize"} /> : <Icon name={"Minimize"} />}
+                    </ModalButton>
+                </div>
+
+
                 {!minimized && (
-                    <button
-                    className={cn(
-                        " p-2 rounded-md  transition-all duration-100 absolute top-1 right-1"
-                    )}
-                    onClick={close}
-                >
-                    <Icon name={"Close"} className={"filter-red-glow text-white rounded-sm"} />
-                </button>
+                    <div className={cn("absolute top-2 right-1")}>
+                        <ModalButton
+                            className={cn(
+                                " p-2 rounded-md  transition-all duration-100 !absolute top-1 right-1"
+                            )}
+                            onClick={handleClose}
+                        >
+                            <Icon name={"Close"} className={"filter-red-glow text-white rounded-sm"} />
+                        </ModalButton>
+                    </div>
                 )}
                 <div >{cloneElement(children, {
                     onCloseModal: close,
-                    minimized,
+                    minimized
                 })}</div>
             </div>
         </div>,

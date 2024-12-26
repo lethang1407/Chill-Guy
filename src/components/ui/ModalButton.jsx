@@ -5,7 +5,7 @@ function ModalButton({ children, icon, onClick, tooltip }) {
     return (
         <div className={cn("relative group inline-block")}>
             
-            <Button onClick={onClick} className="flex items-center justify-center bg-transparent">
+            <Button onClick={onClick} className="flex items-center justify-center bg-transparent border-none shadow-none">
                 <span>{icon}</span>
                 {children}
             </Button>

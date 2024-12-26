@@ -54,6 +54,8 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 5s linear infinite', 
+        'scaleIn': 'scaleIn 0.3s ease-out',
+        'scaleOut': 'scaleOut 0.3s ease-out',
       },
       boxShadow: {
         '3xl': '0px 4px 8px rgba(0, 0, 0, 0.5)',
@@ -63,7 +65,19 @@ export default {
         'red-glow': 'drop-shadow(0px 0px 1px hsl(100, 100%, 80%)) drop-shadow(0px 0px 8px red)',
         
       },
-  },
+      keyframes: {
+        scaleIn: {
+          '0%': { transform: 'scale(0)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        scaleOut: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(0)', opacity: '0' },
+        },
+      },
+    
+    },
+  
 },
 plugins: [
   require("tailwindcss-animate"),

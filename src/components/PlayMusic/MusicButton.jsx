@@ -7,7 +7,7 @@ function MusicButton() {
         <>
             <Menus.Toggle name="Music" icon="Music" />
             <Menus.List name="Music">
-               <Menus.Button icon="Music"><MusicList /></Menus.Button> 
+               <Menus.Button icon="Music"  ><MusicList /></Menus.Button> 
             </Menus.List>
         </>
     )
