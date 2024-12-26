@@ -2,9 +2,9 @@ import MusicItem from "./MusicItem"
 import { cn } from '../../lib/utils'
 export const MusicListData = [
     {
-        name: "Lofi on the Rooftop",
-        url: "vrB9wC6quaU",
-        des: "Chill out lofi music 🍀 lofi hip hop mix makes you feel positive ~ Rainy Lofi vibes for a calm night"
+        name: "About You",
+        url: "iqGAW57EudQ",
+        des: "About You - The 1975"
     },
     {
         name: "Lofi Girl",
