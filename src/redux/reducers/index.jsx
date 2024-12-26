@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import sceneReducer from './sceneReducer';
 import musicReducer from './musicReducer';
 import audioReducer  from './audioReducer';
-import calendarReducer from './CalendarReducer';
+import calendarReducer from './calendarReducer';
 import  todolistReducer  from './todolistReducer';
 import  pomodoroReducer  from './pomodoroReducer';
 import soundReducer from './soundReducer';
