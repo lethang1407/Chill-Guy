@@ -94,9 +94,20 @@ const CalendarWithNotes = ({minimized}) => {
                                 color: "white",
                                 borderRadius: "50%", 
                             },
-                            
+                           
                         }
                         }
+                        slotProps={{
+                            day: {
+                              className: '!text-white !font-[pixel]',  
+                            },
+                            dayOfWeekLabel: {
+                              className: '!text-white !font-[pixel]',  
+                            },
+                            calendarHeader: {
+                              className: '!text-white !font-[pixel]',  
+                            },
+                          }}
                         dayOfWeekFormatter={(date) => date.format('ddd')}
 
                     />
