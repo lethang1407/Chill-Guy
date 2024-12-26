@@ -38,7 +38,7 @@ function SceneList({ onCloseModal }) {
             >
                 <label className="cursor-pointer relative top-1">
                     <img className={cn("h-[7rem] w-[12rem] p-1")} src='/background/default.jpg' alt="Add image"></img>
-                    <p className={cn("text-sm pb-3")}>Add image</p>
+                    <p className={cn("text-sm pb-3 text-white")}>Add image</p>
                     <input
                         type="file"
                         accept="image/*"

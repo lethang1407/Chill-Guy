@@ -1,3 +1,6 @@
+import tailwindcssAnimate from 'tailwindcss-animate';
+import tailwindcssFilters from 'tailwindcss-filters';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
@@ -50,10 +53,9 @@ export default {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
         },
-        
       },
       animation: {
-        'spin-slow': 'spin 5s linear infinite', 
+        'spin-slow': 'spin 5s linear infinite',
         'scaleIn': 'scaleIn 0.3s ease-out',
         'scaleOut': 'scaleOut 0.3s ease-out',
         'blink': 'blink 0.8s infinite',
@@ -64,7 +66,6 @@ export default {
       filter: {
         'green-glow': 'drop-shadow(0px 0px 1px hsl(100, 100%, 80%)) drop-shadow(0px 0px 8px green)',
         'red-glow': 'drop-shadow(0px 0px 1px hsl(100, 100%, 80%)) drop-shadow(0px 0px 8px red)',
-        
       },
       keyframes: {
         scaleIn: {
@@ -80,13 +81,10 @@ export default {
           '50%': { opacity: '0' },
         },
       },
-    
     },
-  
-},
-plugins: [
-  require("tailwindcss-animate"),
-  require("tailwindcss-filters"),
-],  
-  
-}
+  },
+  plugins: [
+    tailwindcssAnimate,
+    tailwindcssFilters,
+  ],
+};
