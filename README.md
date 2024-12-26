@@ -1,9 +1,12 @@
 Chill-Guy 🎧
 
 Chill-Guy là một ứng dụng web được thiết kế giúp bạn tập trung học tập, làm việc và quản lý thời gian hiệu quả. Với giao diện thân thiện và tính năng phong phú, Chill-Guy giúp bạn tạo không gian học tập lý tưởng.
+
+🔥 Link trải nghiệm: [Truy cập website Chill Guy](https://chill-guys.vercel.app/)
+
 🖼️ Giao diện  
 Dưới đây là một số hình ảnh giao diện của ứng dụng:  
-![Giao diện Chill-Guy](public/Capture1.jpg)
+![Giao diện Chill-Guy](public/Capture1.JPG)
 ![Giao diện Chill-Guy](public/Capture2.png)
 ![Giao diện Chill-Guy](public/Capture3.png)
 🌟 Tính năng nổi bật:
