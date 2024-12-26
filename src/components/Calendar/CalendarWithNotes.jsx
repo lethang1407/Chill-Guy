@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers";
@@ -9,7 +9,7 @@ import dayjs from "dayjs";
 import { toast } from "react-hot-toast";
 import { useLocalStorageState } from "../../hooks/useLocalStorage";
 
-const CalendarWithNotes = ({minimized}) => {
+const CalendarWithNotes = ({ minimized }) => {
     const dispatch = useDispatch();
     const { selectedDate, events: reduxEvents } = useSelector((state) => state.event);
     const [events, setEvents] = useLocalStorageState({}, "calendar-events");
@@ -18,9 +18,9 @@ const CalendarWithNotes = ({minimized}) => {
     const [isEditing, setIsEditing] = useState(false);
 
 
-    
+
     const selectedDateObj = selectedDate ? dayjs(selectedDate) : null;
-   
+
     const handleDeleteNote = () => {
         if (selectedDateObj) {
             const date = selectedDateObj.format("YYYY-MM-DD");
@@ -64,47 +64,41 @@ const CalendarWithNotes = ({minimized}) => {
         setIsModalOpen(true);
     };
     if (minimized) {
-        return null; 
+        return null;
     }
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <div style={{ display: "flex", gap: "10px", height: "30vh", overflowY: "auto",color: "white" }}>
+            <div style={{ display: "flex", gap: "10px", height: "30vh", overflowY: "auto", color: "white" }}>
                 {/* Lịch */}
                 <div style={{ flex: 1, overflowY: "auto", scrollBehavior: "smooth", height: "100%" }}>
                     <DateCalendar
-
                         onChange={handleSelectDate}
-                        
                         sx={{
                             color: "white",
                             width: "auto",
                             flexGrow: 1,
                             overflowY: "auto",
                             fontFamily: 'pixel, sans-serif !important',
-                            '& .css-1ckov0h-MuiSvgIcon-root': {
+                            '& .MuiSvgIcon-root': {
+                                color: "white",
+                            },
+                            '& .MuiDayCalendar-weekDayLabel': {
+                                fontFamily: 'pixel, sans-serif !important',
+                                fontSize: '17px', 
                                 color: "white", 
                             },
-                            '& .css-cyfsxc-MuiPickersCalendarHeader-labelContainer,.css-17f9e7e-MuiTypography-root-MuiDayCalendar-weekDayLabel,.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root,.css-qct7wd-MuiButtonBase-root-MuiPickersDay-root,.css-1om332n': {
-                                fontFamily: "'pixel', sans-serif !important",
-                                fontSize: '17px',
-                                color: "white",
-                            },
                             "& .MuiDayPicker-day.Mui-selected": {
-                                backgroundColor: "blue", 
+                                backgroundColor: "blue",
                                 color: "white",
-                                borderRadius: "50%", 
+                                borderRadius: "50%",
                             },
-                            
-                           
-                        }
-                        }
+                        }}
                         slotProps={{
                             day: {
-                              className: 'text-xl !text-white !font-[pixel]',  
+                                className: '!text-[17px] !text-white !font-[pixel]',
                             },
-                          }}
+                        }}
                         dayOfWeekFormatter={(date) => date.format('ddd')}
-
                     />
 
                 </div>
@@ -136,7 +130,7 @@ const CalendarWithNotes = ({minimized}) => {
                                         value={newNote}
                                         onChange={(e) => setNewNote(e.target.value)}
                                         placeholder="Thêm hoặc chỉnh sửa ghi chú cho ngày này"
-                                        style={{ width: "100%", height: "100px",color: "black" }}
+                                        style={{ width: "100%", height: "100px", color: "black" }}
                                     />
                                     <button onClick={handleSaveNote}
                                         className={cn("p-1 text-white hover:text-xl transition-all duration-200 bg-blue-500")}
