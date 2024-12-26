@@ -56,6 +56,7 @@ export default {
         'spin-slow': 'spin 5s linear infinite', 
         'scaleIn': 'scaleIn 0.3s ease-out',
         'scaleOut': 'scaleOut 0.3s ease-out',
+        'blink': 'blink 0.8s infinite',
       },
       boxShadow: {
         '3xl': '0px 4px 8px rgba(0, 0, 0, 0.5)',
@@ -73,6 +74,10 @@ export default {
         scaleOut: {
           '0%': { transform: 'scale(1)', opacity: '1' },
           '100%': { transform: 'scale(0)', opacity: '0' },
+        },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
         },
       },
     
